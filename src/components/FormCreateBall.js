@@ -6,8 +6,8 @@ export default class FormCreateBall extends React.Component {
             <div className="form-ball">
                 <form>
                     <p className="form-header-text">СОЗДАНИЕ BALLS</p>
-                    <Label text="Количество шариков:" typeInput="number" classCss="form-input-text"/>
-                    <Label text="Веселый:" typeInput="checkbox" classCss="form-input-checkbox"/>
+                    <ElementForm text="Количество шариков:" typeInput="number" classCss="form-input-text"/>
+                    <ElementForm updateData={this.updateData} text="Веселый:" typeInput="checkbox" classCss="form-input-checkbox"/>
                     <button type="button" className="form-button">Отрисовать</button>
                 </form>
             </div>
@@ -15,7 +15,7 @@ export default class FormCreateBall extends React.Component {
     }
 }
 
-function Label({ text, typeInput, classCss }) {
+function ElementForm({ text, typeInput, classCss, updateData }) {
     return (
         <div className="input-form">
             <label>{text}</label>

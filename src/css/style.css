@@ -95,6 +95,9 @@ body {
 }
 .ball {
     position: absolute;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
+    z-index: 1000;
+    left: 1000px;
+    top: 500px;
 }
