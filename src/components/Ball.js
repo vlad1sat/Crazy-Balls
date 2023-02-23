@@ -8,9 +8,12 @@ export default function Ball() {
             : evt.target;
 
         const moveSmile = e => {
-            smile.style.left = e.pageX - smile.offsetWidth / 2 + 'px';
-            smile.style.top = e.pageY - smile.offsetHeight / 2 + 'px';
-        }
+            const getStyleSmile = (sizePage, sizeSmile) => sizePage - sizeSmile / 2 + 'px';
+
+            const allSizeSmile = smile.getBoundingClientRect();
+            smile.style.left = getStyleSmile(e.pageX, allSizeSmile.width);
+            smile.style.top = getStyleSmile(e.pageY, allSizeSmile.height);
+        };
 
         smile.addEventListener('mousemove' , moveSmile);
 
@@ -26,5 +29,4 @@ export default function Ball() {
             <img src={smile} alt="ball"/>
         </div>
     );
-
 }
