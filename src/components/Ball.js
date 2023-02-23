@@ -1,7 +1,7 @@
 import React from "react";
 import smile from "../img/smile.png";
-
-export default function Ball() {
+import bad from "../img/bad.png"
+export default function Ball( { mood }) {
     const mouseDownBall = evt => {
         const smile = evt.target.parentElement.nodeName === 'DIV'
             ? evt.target.parentElement
@@ -15,10 +15,10 @@ export default function Ball() {
             smile.style.top = getStyleSmile(e.pageY, allSizeSmile.height);
         };
 
-        smile.addEventListener('mousemove' , moveSmile);
+        document.addEventListener('mousemove' , moveSmile);
 
         smile.addEventListener('mouseup', () => {
-            smile.removeEventListener('mousemove', moveSmile);
+            document.removeEventListener('mousemove', moveSmile);
         });
 
         smile.ondragstart = () => false;
@@ -26,7 +26,7 @@ export default function Ball() {
 
     return (
         <div className="ball" onMouseDown={mouseDownBall} >
-            <img src={smile} alt="ball"/>
+            <img src={mood ? smile : bad} alt="ball"/>
         </div>
     );
 }
