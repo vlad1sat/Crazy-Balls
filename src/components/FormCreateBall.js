@@ -10,8 +10,6 @@ export default class FormCreateBall extends React.Component {
                     <MoodBalls updateData={this.props.onChangeMood} />
                     <ButtonForm text="Отрисовать" clickButton={this.props.onClickButton} />
                     <ButtonForm text="Отчистить" clickButton={this.props.onCleanBalls} />
-                    {/*
-                    <button type="button" className="form-button" onClick={this.props.onClickButton}>Отрисовать</button>*/}
                 </form>
             </div>
         );

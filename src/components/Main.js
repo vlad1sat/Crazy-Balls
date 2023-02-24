@@ -33,11 +33,11 @@ export default class Main extends React.Component {
     onCleanBalls() {
         this.appendBalls(0);
     }
+
     appendBalls(lengthBalls) {
         let newBalls = [];
-        for (let i = 0; i < lengthBalls; i++) {
-            newBalls.push(<Ball mood={this.state.isHappy}/>)
-        }
+        newBalls.length = lengthBalls;
+        newBalls.fill(<Ball />);
         this.setState( { balls: [...newBalls]});
     }
     render() {
