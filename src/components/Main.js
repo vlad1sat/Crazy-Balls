@@ -40,6 +40,7 @@ export default class Main extends React.Component {
         newBalls.fill(<Ball />);
         this.setState( { balls: [...newBalls]});
     }
+
     render() {
         return (
             <main>
