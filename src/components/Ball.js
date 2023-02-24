@@ -1,6 +1,7 @@
 import React from "react";
 import smile from "../img/smile.png";
 import bad from "../img/bad.png"
+
 export default function Ball( { mood }) {
     const mouseDownBall = evt => {
         const smile = evt.target.parentElement.nodeName === 'DIV'
