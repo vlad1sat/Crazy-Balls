@@ -66,6 +66,10 @@ body {
     border: 0;
 }
 
+.form-input-text::placeholder {
+    font-size: 20px;
+}
+
 .form-input-checkbox {
     width: 30px;
     height: 30px;
@@ -73,7 +77,7 @@ body {
 
 .form-button {
     font-size: 22px;
-    margin: 70px 0 15px 30px;
+    margin: 30px 0 0 30px;
     font-weight: bold;
     text-align: center;
     width: 240px;

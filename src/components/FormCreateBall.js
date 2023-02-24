@@ -8,18 +8,26 @@ export default class FormCreateBall extends React.Component {
                     <p className="form-header-text">СОЗДАНИЕ BALLS</p>
                     <CountBalls updateData={this.props.onChangeCountBalls} />
                     <MoodBalls updateData={this.props.onChangeMood} />
-                    <button type="button" className="form-button" onClick={this.props.onClickButton}>Отрисовать</button>
+                    <ButtonForm text="Отрисовать" clickButton={this.props.onClickButton} />
+                    <ButtonForm text="Отчистить" clickButton={this.props.onCleanBalls} />
+                    {/*
+                    <button type="button" className="form-button" onClick={this.props.onClickButton}>Отрисовать</button>*/}
                 </form>
             </div>
         );
     }
 }
 
+function ButtonForm({ text, clickButton }) {
+    return <button type="button" className="form-button" onClick={clickButton}>{text}</button>;
+}
+
 function CountBalls({ updateData }) {
     return (
         <div className="input-form">
             <label>{"Количество шариков:"}</label>
-            <input className="form-input-text" type="number" onChange={evt => updateData(evt.target.value)} />
+            <input className="form-input-text" type="number" min="0" step="1" placeholder="Введите значения от 0"
+                   onChange={evt => updateData(evt.target.value)} />
         </div>
     );
 }

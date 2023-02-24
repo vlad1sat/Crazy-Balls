@@ -8,6 +8,7 @@ export default class Main extends React.Component {
         this.setIsHappy = this.setIsHappy.bind(this);
         this.clickButtonForm = this.clickButtonForm.bind(this);
         this.appendBalls = this.appendBalls.bind(this);
+        this.onCleanBalls = this.onCleanBalls.bind(this);
 
         this.state = {
             countBalls: 1,
@@ -26,12 +27,15 @@ export default class Main extends React.Component {
 
     clickButtonForm(evt) {
         evt.preventDefault();
-        this.appendBalls();
+        this.appendBalls(this.state.countBalls);
     }
 
-    appendBalls() {
+    onCleanBalls() {
+        this.appendBalls(0);
+    }
+    appendBalls(lengthBalls) {
         let newBalls = [];
-        for (let i = 0; i < this.state.countBalls; i++) {
+        for (let i = 0; i < lengthBalls; i++) {
             newBalls.push(<Ball mood={this.state.isHappy}/>)
         }
         this.setState( { balls: [...newBalls]});
@@ -41,7 +45,9 @@ export default class Main extends React.Component {
             <main>
                 <FormCreateBall onChangeCountBalls={ this.setCountBalls }
                                 onChangeMood={ this.setIsHappy }
-                                onClickButton={this.clickButtonForm}/>
+                                onClickButton={ this.clickButtonForm }
+                                onCleanBalls={ this.onCleanBalls }
+                />
                 {this.state.balls}
             </main>
         );
