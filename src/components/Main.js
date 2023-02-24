@@ -38,7 +38,7 @@ export default class Main extends React.Component {
     appendBalls(lengthBalls) {
         let newBalls = [];
         newBalls.length = lengthBalls;
-        newBalls.fill(<Ball />);
+        newBalls.fill(<Ball mood={this.state.isHappy} />);
         this.setState( { balls: [...newBalls]});
     }
 
